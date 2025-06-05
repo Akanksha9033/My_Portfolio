@@ -1,57 +1,52 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaTools, FaUsers } from 'react-icons/fa';
+import { SiMongodb, SiZoho } from 'react-icons/si';
 
 const skills = [
-  { name: 'HTML/CSS', level: 90 },
-  { name: 'JavaScript', level: 85 },
-  { name: 'React.js', level: 80 },
-  { name: 'Tailwind CSS', level: 75 },
-  { name: 'Node.js', level: 70 },
-  { name: 'MongoDB', level: 70 },
-  { name: 'Zoho CRM', level: 65 },
-  { name: 'Team Leadership', level: 80 },
+  {
+    title: 'Languages & Frameworks',
+    color: 'from-indigo-100 to-indigo-200',
+    icon: <FaReact className="text-indigo-600 text-3xl" />,
+    items: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'MongoDB'],
+  },
+  {
+    title: 'Tools',
+    color: 'from-pink-100 to-pink-200',
+    icon: <FaTools className="text-pink-600 text-3xl" />,
+    items: ['Zoho CRM'],
+  },
+  {
+    title: 'Soft Skills',
+    color: 'from-green-100 to-green-200',
+    icon: <FaUsers className="text-green-600 text-3xl" />,
+    items: ['Communication', 'Team Collaboration', 'Time Management'],
+  },
 ];
 
 const Skills = () => {
   return (
-    <motion.section
-      id="skills"
-      className="scroll-mt-24 py-20 px-6 bg-white"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
-      <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">Skills</h2>
+    <section id="skills" className="py-16 px-6 bg-white scroll-mt-24">
+      <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">Technical Skills</h2>
 
-      {/* Paragraph above skills list */}
-      <p className="text-center max-w-3xl mx-auto text-gray-600 text-md mb-12">
-        As part of <strong className="text-indigo-600">Edzest</strong> — a growing startup revolutionizing online learning and testing —
-        I’ve developed skills in full-stack web development, CRM integration (Zoho), and team leadership.
-        I'm passionate about building efficient systems and mentoring developers in agile environments.
-      </p>
-
-      {/* Skill bars */}
-      <div className="max-w-4xl mx-auto space-y-6">
-        {skills.map((skill, index) => (
-          <div key={index}>
-            <div className="flex justify-between mb-1">
-              <span className="text-lg font-medium text-gray-700">{skill.name}</span>
-              <span className="text-sm text-gray-500">{skill.level}%</span>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {skills.map((group, index) => (
+          <div
+            key={index}
+            className={`bg-gradient-to-br ${group.color} p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300`}
+          >
+            <div className="flex items-center gap-3 mb-4">
+              {group.icon}
+              <h3 className="text-xl font-semibold text-gray-800">{group.title}</h3>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-4">
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: `${skill.level}%` }}
-                transition={{ duration: 1.2 }}
-                viewport={{ once: true }}
-                className="bg-indigo-500 h-4 rounded-full"
-              />
-            </div>
+            <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+              {group.items.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>
-    </motion.section>
+    </section>
   );
 };
 
