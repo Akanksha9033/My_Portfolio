@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
-import profileImage from '../assets/akanksha2.jpg'; // Replace with your actual image path
+import profileImage from '../assets/akanksha3.jpg'; // Replace with your actual image path
 
 const Home = () => {
   return (
