@@ -17,7 +17,7 @@ const Contact = () => (
             href="mailto:hapychaudhary123spj@gmail.com"
             className="text-indigo-600 hover:underline"
           >
-            hapychaudhary123spj@gmail.com
+            akanksha@edzest.org
           </a>
         </span>
       </p>
